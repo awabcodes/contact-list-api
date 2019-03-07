@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "@babel/polyfill"
 import cors from "cors";
 import bodyParser from "body-parser";
 import express from "express";
@@ -29,7 +30,7 @@ app.use("/numbers", routes.number);
 
 // Start
 
-const eraseDatabaseOnSync = true;
+const eraseDatabaseOnSync = false;
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
   if (eraseDatabaseOnSync) {

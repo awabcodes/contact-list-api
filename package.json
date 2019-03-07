@@ -4,8 +4,10 @@
   "description": "API for managing contact lists",
   "main": "index.js",
   "scripts": {
-    "start": "node --exec babel-node src/index.js",
+    "start": "npm run build && npm run serve",
     "devstart": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/index.js",
     "test": "mocha --timeout 15000 --require @babel/register --require @babel/polyfill --recursive tests/ --exit"
   },
   "author": "Awab Abdoun",
@@ -15,16 +17,18 @@
     "url": "git://github.com/awabcodes/contact-list-api.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-regenerator": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
     "cloudinary": "^1.13.2",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
