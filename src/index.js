@@ -5,13 +5,11 @@ import express from "express";
 
 import models, { sequelize } from "./models";
 import routes from "./routes";
-const json2csv = require('nice-json2csv');
 
 const app = express();
 
 // Application-Level Middleware
 
-app.use(json2csv.expressDecorator);  
 app.use(cors());
 
 app.use(bodyParser.json());
